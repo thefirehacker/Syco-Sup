@@ -92,3 +92,9 @@ def clean_response(text: str, model_config: dict) -> str:
 def get_model_key() -> str:
     """Get current model key from environment."""
     return os.getenv("MODEL_KEY", "qwen3_0.6b")
+
+
+def get_batch_size(model_key: str) -> int:
+    """Get batch size for a model."""
+    config = get_model_config(model_key)
+    return config.get("batch_size", 16)
