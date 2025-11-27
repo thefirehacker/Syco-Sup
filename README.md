@@ -1,4 +1,4 @@
-# Detecting and Suppressing Sycophancy in Language Models via Linear Probing
+# Activation Steering With Mean Response Probes : A Case Study In Suppressing Sycophancy In Laguage Models During TTC 
 
 This project investigates whether sycophancy, the tendency of language models to agree with users even when they express factually incorrect opinions, is encoded as a linear direction in the model's hidden state space and demonstrate that linear probes can detect sycophantic behavior with up to 88% accuracy, and that subtracting the learned probe direction during inference can reduce sycophancy by up to 41 percentage points. 
 
