@@ -85,7 +85,7 @@ def save_fig(fig, filename):
     print(f"  Saved: {filename}")
 
 # ============================================================
-# PLOT 1: SMOOTH LAYER HEATMAP (like the reference image)
+# PLOT 1: SMOOTH LAYER HEATMAP 
 # ============================================================
 
 print("1. Smooth layer heatmap...")
@@ -98,17 +98,16 @@ for i, method in enumerate(methods):
     for r in probe_data['all_results'][method]['layer_results']:
         data[i, r['layer']] = r['test_acc'] * 100
 
-# Use scipy.ndimage.zoom for smooth upscaling
+
 from scipy.ndimage import zoom
 
-# Upsample: 3 methods -> 60 rows, 29 layers -> 290 cols
+
 data_smooth = zoom(data, (20, 10), order=3)
 
-# Apply slight gaussian blur for extra smoothness
+
 data_smooth = gaussian_filter(data_smooth, sigma=2)
 
-# Plot with jet colormap like reference
-# Dynamic color range based on data
+
 data_min = max(45, data.min() - 5)
 data_max = min(100, data.max() + 5)
 im = ax.imshow(data_smooth, aspect='auto', cmap='jet',
@@ -129,7 +128,7 @@ ax.set_title('Probe Accuracy by Layer and Extraction Method', fontsize=14, fontw
 save_fig(fig, str(PLOTS_DIR / '01_layer_heatmap.png'))
 
 # ============================================================
-# PLOT 2: LINE PLOT - Clean and simple
+# PLOT 2: LINE PLOT 
 # ============================================================
 
 print("2. Layer accuracy lines...")

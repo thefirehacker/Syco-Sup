@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ### Run Full Pipeline
 
 ```bash
-# Set model (qwen3_0.6b, qwen3_4b, or deepseek_r1_8b)
+# Set model (qwen3_0.6b, qwen3_4b, deepseek_r1_8b) you can also use any other model from Huggingface
 export MODEL_KEY=qwen3_0.6b
 
 # Run complete pipeline
